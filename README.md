@@ -6,14 +6,15 @@ _It is mainly an excgit use to play with Go and it is not in any way supported b
 
 ## How to use it
 
-Build the docker container:
+Pull the docker container: `docker pull matteoscandolo/xos-cli`
+or build it:
 ```
-docker build -t xos-cli .
+docker build -t matteoscandolo/xos-cli .
 ```
 
 Run the docker container:
 ```
-docker run --name xos-cli --net host --volume <tosca-recipe-folder>:/opt/tosca -d xos-cli
+docker run --name xos-cli --net host --volume <tosca-recipe-folder>:/opt/tosca -d matteoscandolo/xos-cli
 ```
 
 Use the CLI:
