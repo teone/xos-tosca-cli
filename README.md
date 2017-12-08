@@ -2,7 +2,7 @@
 
 This is an helper around the new TOSCA engine. It let you easily submit TOSCA recipes.
 
-_It is mainly an exuse to play with Go and it is not in any way supported by the OpenCORD project_
+_It is mainly an excgit use to play with Go and it is not in any way supported by the OpenCORD project_
 
 ## How to use it
 
