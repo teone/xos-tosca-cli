@@ -6,9 +6,17 @@ _It is mainly an exuse to play with Go and it is not in any way supported by the
 
 ## How to use it
 
-Open `build xos-tosca-cli.go` and customize the configuration, then compile and run it:
-
+Build the docker container:
 ```
-go build xos-tosca-cli.go
-./xos-tosca-cli
+docker build -t xos-cli .
+```
+
+Run the docker container:
+```
+docker run --name xos-cli --net host --volume <tosca-recipe-folder>:/opt/tosca -d xos-cli
+```
+
+Use the CLI:
+```
+docker exec -it xos-cli ./xos-tosca-cli
 ```

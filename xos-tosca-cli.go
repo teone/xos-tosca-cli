@@ -39,7 +39,7 @@ $$ /  $$ | $$$$$$  |\$$$$$$  |       $$ |    $$$$$$  |\$$$$$$  |\$$$$$$  |$$ |  
 //var url = "http://10.90.2.10/xos-tosca"
 var url = "http://127.0.0.1:9102"
 
-var recipe_folder = "/Users/teone/Sites/cord_profile/"
+var recipe_folder = "/opt/tosca/"
 
 var xos_username = "xosadmin@opencord.org"
 
@@ -64,6 +64,44 @@ func main(){
 	shell := ishell.New()
 
 	printBanner(shell)
+
+	// configure the shell
+
+	shell.Print("Please insert the XOS-TOSCA url you want to use (leave empty to use: http://127.0.0.1:9102):")
+	user_url := shell.ReadLine()
+
+	if len(user_url) > 0 {
+		url = user_url
+	}
+
+	shell.Print("Please insert the XOS Username you want to use (leave empty to use: xosadmin@opencord.org):")
+	username := shell.ReadLine()
+
+	if len(username) > 0 {
+		xos_username = username
+	}
+
+	shell.Print("Please insert the XOS Username you want to use (leave empty to use: ORR13pBZ8yrAZ42QiKhc):")
+	password := shell.ReadLine()
+
+	if len(password) > 0 {
+		xos_password = password
+	}
+
+	shell.Print("Please insert the location of your TOSCA recipes (leave empty to use: /xos/tosca):")
+	folder := shell.ReadLine()
+
+	if len(folder) > 0 {
+		recipe_folder = folder
+	}
+
+	shell.Println(`URL:`, url)
+	shell.Println(`Username:`, xos_username)
+	shell.Println(`Password:`, xos_password)
+	shell.Println(`Folder:`, recipe_folder)
+
+
+
 	shell.AddCmd(&ishell.Cmd{
 		Name: "list-tosca",
 		Help: "List the available TOSCA definition in XOS",
